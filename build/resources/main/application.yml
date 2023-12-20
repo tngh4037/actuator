@@ -1,4 +1,6 @@
-management:
+management: # 액츄에이터가 사용하는 속성들이다.
+  server:
+    port: 8080
   info:
     java:
       enabled: true
@@ -6,6 +8,8 @@ management:
       enabled: true
     env:
       enabled: true
+    git:
+      mode: full
   endpoint:
     shutdown:
       enabled: true
@@ -15,12 +19,18 @@ management:
     web:
       exposure:
         include: "*"
+      # base-path: "/manage"
 
 info:
   app:
     name: hello-actuator
     company: sh
 
+logging:
+  level:
+    hello.controller: debug
 
-
-# 액츄에이터가 사용하는 속성들이다.
+server:
+  tomcat:
+    mbeanregistry:
+      enabled: true

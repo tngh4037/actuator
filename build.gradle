@@ -3,6 +3,8 @@ plugins {
     id 'org.springframework.boot' version '3.0.2'
     id 'io.spring.dependency-management' version '1.1.0'
     id "com.gorylenko.gradle-git-properties" version "2.4.1" // git info
+    // 물론 프로젝트가 git 으로 관리되고 있어야 한다. 그렇지 않으면 빌드시 오류가 발생한다.
+    //   ㄴ No Git Repository Found 오류 발생
 }
 
 group = 'hello'
@@ -22,7 +24,8 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator' //actuator 추가
+    implementation 'org.springframework.boot:spring-boot-starter-actuator' // actuator 추가
+    implementation 'io.micrometer:micrometer-registry-prometheus' // 추가
 
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'
